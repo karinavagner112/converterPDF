@@ -12,10 +12,8 @@ namespace ConverterPDF
             string pathWithFileName = Path.Combine(targetPath, "new.pdf");
             using (var output = new PdfDocument())
             {
-
                 foreach (var pdf in pdfs)
                 {
-                    //FileStream? pdfDoc;
                     using (var pdfDoc = PdfReader.Open(pdf, PdfDocumentOpenMode.Import))
                     {
                         for (int i = 0; i < pdfDoc.PageCount; i++)
