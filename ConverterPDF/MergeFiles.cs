@@ -7,6 +7,11 @@ namespace ConverterPDF
 {
     public class MergeFiles
     {
+        /// <summary>
+        /// merge two or more pdf files in one
+        /// </summary>
+        /// <param name="targetPath">path to new pdf file</param>
+        /// <param name="pdfs">array with paths to pdf files</param>
         public void MergePDFs(string targetPath, string[] pdfs)
         {
             string pathWithFileName = Path.Combine(targetPath, "new.pdf");
@@ -34,6 +39,9 @@ namespace ConverterPDF
         }
 
 
+        /// <summary>
+        /// copies fonts from the source pdf to the target pdf
+        /// </summary>
         void CopyFonts(PdfDocument source, PdfDocument target)
         {
             foreach (var font in source.Internals.GetAllObjects().Where(o => o is PdfFont))

@@ -9,9 +9,9 @@ namespace ConverterPDF
         /// <summary>
         /// split one pdf in two pdfs 
         /// </summary>
-        /// <param name="sourcePdf">source pdf file </param>
-        /// <param name="targetPdf1">new pdf file </param>
-        /// <param name="targetPdf2">another one new pdf file</param>
+        /// <param name="sourcePdf">path to source pdf file </param>
+        /// <param name="targetPdf1">path to new pdf file </param>
+        /// <param name="targetPdf2">path to another one new pdf file</param>
         /// <param name="pageToSplit">on which page the file will be split</param>
         public void SplitPdfPages(string sourcePdf, string targetPdf1, string targetPdf2, int pageToSplit)
 		{
