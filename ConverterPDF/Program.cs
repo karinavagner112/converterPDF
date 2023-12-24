@@ -10,6 +10,8 @@ namespace ConverterPDF
             Console.WriteLine("Welche Operation möchten Sie machen: " + 
                 "1 - PDF zusammenfügen; 2 - Seiten löschen; 3 - PDF teilen");
             string option = Console.ReadLine();
+
+            Helper helper = new Helper();
             
 
             if(option == "1")
@@ -32,7 +34,7 @@ namespace ConverterPDF
                 string pages = Console.ReadLine();
                 string[] numberStrings = pages.Split(',');
                 List<int> numbersPdf = new List<int>();
-                PagesToInt(numberStrings, numbersPdf);
+                helper.PagesToInt(numberStrings, numbersPdf);
                 DeletePage delete = new DeletePage();
                 delete.DeletePageFromPDF(pdfPath, newPath, numbersPdf);
 
@@ -55,17 +57,6 @@ namespace ConverterPDF
                 Console.WriteLine("Falsche Eingabe! Versuchen Sie noch mal!");
             }
             
-        }
-
-        static void PagesToInt(string[] pages, List<int> numbers)
-        {
-            foreach (string numberString in pages)
-            {
-                if (int.TryParse(numberString, out int number))
-                {
-                    numbers.Add(number);
-                }
-            }
         }
     }
 }
