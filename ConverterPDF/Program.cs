@@ -8,7 +8,7 @@ namespace ConverterPDF
         {
             Console.WriteLine("Willkommen in PDF-Konverter");
             Console.WriteLine("Welche Operation möchten Sie machen: " +
-                "1 - PDF zusammenfügen; 2 - Seiten löschen; 3 - PDF teilen");
+                "1 - PDF zusammenfügen; 2 - Seiten löschen; 3 - PDF teilen, 4 - PDF Compress");
 
             string option = Console.ReadLine();
             Helper helper = new Helper();
@@ -52,6 +52,13 @@ namespace ConverterPDF
                 int number = int.Parse(pageNumber);
                 SplitPages split = new SplitPages();
                 split.SplitPdfPages(file.Path, file.NewPath, file.PathSplit, number);
+            }
+            else if (option == "4")
+            {
+                Console.WriteLine("Geben Sie die Dateipfade von Pdf-Datei, die geteilt werden soll: ");
+                file.Path = Console.ReadLine();
+                CompressFile compressFile = new CompressFile();
+                compressFile.CompressPdf(file.Path);
             }
             else
             {
